@@ -22,11 +22,11 @@ interface MovieDetailsProps {
 export function MovieDetails({ movie, comments, onClose }: MovieDetailsProps) {
     return (
         <div
-            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-start justify-center pt-[60px] px-4 pb-4 overflow-y-auto"
             onClick={onClose}
         >
-            <div className="relative max-w-4xl w-full my-8" onClick={(e) => e.stopPropagation()}>
-                <div className="relative bg-[#e8d7b0] rounded-sm shadow-2xl p-8 md:p-12">
+            <div className="relative max-w-6xl w-full mb-8" onClick={(e) => e.stopPropagation()}>
+                <div className="relative bg-[#e8d7b0] rounded-sm shadow-2xl p-6">
                     {/* Paper texture */}
                     <div className="absolute inset-0 opacity-20 pointer-events-none">
                         <div className="w-full h-full bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,0,0,0.05)_2px,rgba(0,0,0,0.05)_4px)]" />
@@ -52,7 +52,7 @@ export function MovieDetails({ movie, comments, onClose }: MovieDetailsProps) {
                         </div>
                     </div>
 
-                    <div className="relative z-10 grid md:grid-cols-[280px_1fr] gap-8">
+                    <div className="relative z-10 grid md:grid-cols-[240px_1fr] gap-6">
                         {/* Movie poster with paperclip */}
                         <div className="relative">
                             <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-20">
@@ -78,7 +78,7 @@ export function MovieDetails({ movie, comments, onClose }: MovieDetailsProps) {
                         <div className="space-y-6">
                             <div className="-rotate-2">
                                 <h2
-                                    className="text-3xl md:text-4xl font-black uppercase text-black leading-tight border-4 border-black inline-block px-4 py-2 bg-[#d4af37]/30"
+                                    className="text-2xl md:text-3xl font-black uppercase text-black leading-tight border-4 border-black inline-block px-3 py-1 bg-[#d4af37]/30"
                                     style={{ fontFamily: "Impact, sans-serif" }}
                                 >
                                     {movie.title}
@@ -166,7 +166,7 @@ export function MovieDetails({ movie, comments, onClose }: MovieDetailsProps) {
                         </div>
                     </div>
 
-                    <div className="relative z-10 mt-12 pt-8 border-t-2 border-black/20">
+                    <div className="relative z-10 mt-6 pt-4 border-t-2 border-black/20">
                         <h3
                             className="text-2xl font-black uppercase mb-6 text-black"
                             style={{ fontFamily: "Impact, sans-serif" }}

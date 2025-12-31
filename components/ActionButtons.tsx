@@ -15,10 +15,10 @@ export function ActionButtons({ onReportClick, onRandomizeClick }: ActionButtons
             >
                 <div className="bg-[#8b0000] text-white px-12 py-8 shadow-2xl hover:shadow-[0_0_30px_rgba(139,0,0,0.6)] transition-all rotate-3 hover:rotate-0 border-4 border-black">
                     <p
-                        className="font-black text-xl uppercase tracking-wider flex items-center gap-2"
+                        className="font-black text-2xl uppercase tracking-widest flex items-center gap-2"
                         style={{ fontFamily: "Impact, sans-serif" }}
                     >
-                        <Clapperboard className="w-8 h-8" />
+                        <Clapperboard className="w-10 h-10" />
                         Reportar Amenaza
                     </p>
                 </div>
@@ -27,7 +27,7 @@ export function ActionButtons({ onReportClick, onRandomizeClick }: ActionButtons
             {/* Random button */}
             <button
                 onClick={onRandomizeClick}
-                className="fixed bottom-16 left-8 z-40 bg-[#8b0000] text-white px-12 py-8 font-black uppercase text-xl shadow-2xl hover:shadow-[0_0_30px_rgba(139,0,0,0.6)] transition-all -rotate-3 hover:rotate-0 border-4 border-black"
+                className="fixed bottom-16 left-8 z-40 bg-[#8b0000] text-white px-12 py-8 font-black uppercase text-2xl tracking-widest shadow-2xl hover:shadow-[0_0_30px_rgba(139,0,0,0.6)] transition-all -rotate-3 hover:rotate-0 border-4 border-black"
                 style={{ fontFamily: "Impact, sans-serif" }}
             >
                 🎲 PELÍCULA ALEATORIA
