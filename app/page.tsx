@@ -24,7 +24,19 @@ export default function CultoBPage() {
 
   const { headlines, loading: loadingHeadlines } = useHeadlines()
   const { movies, loading: loadingMovies } = useMovies()
-  const { comments: mockComments, loading: loadingComments } = useComments()
+  const { comments: initialComments, loading: loadingComments } = useComments()
+
+  const [comments, setComments] = useState<typeof initialComments>([])
+
+  // Load initial comments when fetched
+  if (comments.length === 0 && initialComments.length > 0) {
+    setComments(initialComments)
+  }
+
+  const handleAddComment = (newComment: Omit<typeof initialComments[0], "id">) => {
+    const commentWithId = { ...newComment, id: Date.now() }
+    setComments((prev) => [commentWithId, ...prev])
+  }
 
   const filteredMovies = selectedGenre ? movies.filter((m) => m.genre === selectedGenre) : movies
 
@@ -50,8 +62,9 @@ export default function CultoBPage() {
         selectedMovie && (
           <MovieDetails
             movie={selectedMovie}
-            comments={mockComments}
+            comments={comments}
             onClose={() => setSelectedMovie(null)}
+            onAddComment={handleAddComment}
           />
         )
       }

@@ -4,22 +4,21 @@ import { Film, X } from "lucide-react"
 // strictly we should import if possible but interface is cleaner for component isolation unless we have shared type file)
 // Reading previous step output, `useMovies` exports `Movie`.
 import { type Movie } from "@/hooks/useMovies"
+import { type Comment } from "@/hooks/useComments"
+import { useState } from "react"
+import { AddCommentForm } from "./AddCommentForm"
 
-// Minimal comment interface based on usage in page.tsx
-interface Comment {
-    id: string | number
-    text: string
-    author: string
-    color: string
-}
+// Minimal comment interface removed in favor of import
 
 interface MovieDetailsProps {
     movie: Movie
     comments: Comment[]
     onClose: () => void
+    onAddComment: (comment: Omit<Comment, "id">) => void
 }
 
-export function MovieDetails({ movie, comments, onClose }: MovieDetailsProps) {
+export function MovieDetails({ movie, comments, onClose, onAddComment }: MovieDetailsProps) {
+    const [showAddComment, setShowAddComment] = useState(false)
     return (
         <div
             className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-start justify-center pt-[60px] px-4 pb-4 overflow-y-auto"
@@ -215,9 +214,34 @@ export function MovieDetails({ movie, comments, onClose }: MovieDetailsProps) {
                                 </div>
                             ))}
                         </div>
+
+                        <div className="mt-8 text-center">
+                            <button
+                                onClick={() => setShowAddComment(true)}
+                                className="group relative inline-block focus:outline-none focus:ring rotate-1 hover:rotate-0 transition-transform"
+                            >
+                                <span
+                                    className="absolute inset-0 translate-x-1.5 translate-y-1.5 bg-black transition-transform group-hover:translate-x-0 group-hover:translate-y-0"
+                                ></span>
+
+                                <span
+                                    className="relative inline-block border-2 border-black px-8 py-3 text-lg font-black uppercase tracking-widest text-black bg-[#dbeafe] hover:bg-[#bfdbfe]"
+                                    style={{ fontFamily: "Impact, sans-serif" }}
+                                >
+                                    + Agregar Nota
+                                </span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            {showAddComment && (
+                <AddCommentForm
+                    onClose={() => setShowAddComment(false)}
+                    onAddComment={onAddComment}
+                />
+            )}
         </div>
     )
 }
