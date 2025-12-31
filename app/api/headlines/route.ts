@@ -1,0 +1,16 @@
+
+import { NextResponse } from "next/server";
+
+export async function GET() {
+    const headlines = [
+        "URGENTE: TURBINA DE AVIÓN APLASTA A ADOLESCENTE EN MIDDLESEX",
+        "GRABOIDES AVISTADOS EN NEVADA - EVACUACIÓN INMEDIATA",
+        "TOMATES ASESINOS RUEDAN HACIA LA CASA BLANCA",
+        "NEUMÁTICO ASESINO SIGUE PRÓFUGO - SE BUSCA VIVO O DESINFLADO",
+        "CONFIRMADO: ALIENS PLANEAN INVASIÓN CON PLAN 9",
+        "TIBURONES EN TORNADOS ATACAN COSTA OESTE",
+        "DEMONIOS POSEÍDOS ESCAPAN DE CABAÑA EN TENNESSEE",
+    ];
+
+    return NextResponse.json(headlines);
+}
